@@ -1,15 +1,17 @@
 package com.kartik.springbootcrud.modal;
 
-import com.kartik.springbootcrud.entity.Subject;
+import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
 
-@Entity
-public class ModelStudent {
+public class StudentModel {
     private int id;
     private String name;
     private String email;
+    private String gender;
+
+    private String subjectName;
+
+    private List<String> subjectList;
 
     public int getId() {
         return id;
@@ -43,15 +45,21 @@ public class ModelStudent {
         this.gender = gender;
     }
 
-    public Subject getSubject() {
-        return subject;
+    public void setSubjectList(List<String> subjectList) {
+        this.subjectList = subjectList;
     }
 
-    public void setSubject(Subject subject) {
-        this.subject = subject;
+    public List<String> getSubjectList() {
+        return subjectList;
     }
 
-    private String  gender;
-    private Subject subject;
+    public String getSubjectName() {
+        return subjectName;
+    }
+
+    public void setSubjectName(String subjectName) {
+        this.subjectName = subjectName;
+    }
+
 
 }

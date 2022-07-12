@@ -1,7 +1,9 @@
 package com.kartik.springbootcrud.service;
 
-import com.kartik.springbootcrud.entity.StudentSubject;
-import com.kartik.springbootcrud.entity.Subject;
+import com.kartik.springbootcrud.conveter.ModalConverter;
+import com.kartik.springbootcrud.entity.StudentEntity;
+import com.kartik.springbootcrud.entity.SubjectEntity;
+import com.kartik.springbootcrud.modal.StudentModel;
 import com.kartik.springbootcrud.repository.StudentRepo;
 import com.kartik.springbootcrud.repository.SubjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,30 +13,36 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-
 public class SubjectService {
 
-    @Autowired
-    private SubjectRepository subjectRepository;
+//    @Autowired
+//    private SubjectRepository subjectRepository;
 
     @Autowired
     private StudentRepo studentRepo;
 
+//    @Autowired
+//    private ModalConverter modalConverter;
 
-    public List<StudentSubject> getStudentDetail() {
-        List<StudentSubject> studentSubjects = new ArrayList<>();
-        studentRepo.findAll().forEach(studentSubjects::add);
-        return studentSubjects;
-    }
 
-    public List<Subject> getSubject() {
-        List<Subject> subjects = new ArrayList<>();
-        subjectRepository.findAll().forEach(subjects::add);
-        return subjects;
-    }
+//    public List<StudentEntity> getStudentDetail() {
+//        List<StudentEntity> studentEntities = new ArrayList<>();
+//        studentRepo.findAll().forEach(studentEntities::add);
+//        return studentEntities;
+//    }
+//
+//    public List<SubjectEntity> getSubject() {
+//        List<SubjectEntity> subjectEntities = new ArrayList<>();
+//        subjectRepository.findAll().forEach(subjectEntities::add);
+//        return subjectEntities;
+//    }
 
-    public void addSubject(StudentSubject studentSubject) {
-        studentRepo.save(studentSubject);
+//    public void addSubject(StudentModel student) {
+//        studentRepo.save(modalConverter.convertModalToEntity(student));
+//    }
+
+    public void addSubjectEntity(StudentEntity studentEntity) {
+        studentRepo.save(studentEntity);
     }
 }
 
