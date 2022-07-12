@@ -1,36 +1,33 @@
 package com.kartik.springbootcrud.controller;
 
-import com.kartik.springbootcrud.entity.StudentSubject;
-import com.kartik.springbootcrud.entity.Subject;
+import com.kartik.springbootcrud.entity.StudentEntity;
+import com.kartik.springbootcrud.modal.StudentModel;
 import com.kartik.springbootcrud.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Controller
+//@Controller
 @RestController
 public class SubjectController {
     @Autowired
     private SubjectService subjectService;
 
-
-    /*@RequestMapping("/subject")
-    public List<Subject> getSubject(){
-        return subjectService.getSubject();
-    }*/
-
-    @RequestMapping("/Studentsubject")
-    public List<StudentSubject> getStudentDetail(){
+    @RequestMapping("/student/get-all")
+    public List<StudentEntity> getStudentDetail() {
         return subjectService.getStudentDetail();
     }
-    @PostMapping("/Studentall")
-    public void addSubject(@PathVariable StudentSubject studentSubject ) {
-      subjectService.addSubject(studentSubject);
+
+    @PostMapping("/student/save")
+    public void addSubject(@RequestBody StudentEntity studentEntity) {
+//    public void addSubject(@RequestBody StudentModel studentModel) {
+//        subjectService.addSubject(studentModel);
+        subjectService.addSubjectEntity(studentEntity);
     }
-
-
 
 
 }
